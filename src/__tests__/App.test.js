@@ -3,9 +3,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 // the components to test
-import App from '../App';
-import CommentBox from '../components/CommentBox';
-import CommentList from '../components/CommentList';
+import App from 'App';
+import CommentBox from 'components/CommentBox';
+import CommentList from 'components/CommentList';
 
 // testing for the existence of CommentBox
 it('should render a single instance of CommentBox', () => {
