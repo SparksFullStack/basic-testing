@@ -28,7 +28,25 @@ it('has a textarea element that users can type inside of', () => {
         .simulate('change', { target: {
             value: "cheesedick"
         }})
+    
+    wrapped.update();
 
     // testing that the value passed in through the mock event did get set
     expect(wrapped.find('textarea').prop('value')).toEqual('cheesedick');
+})
+
+// testing that the form can successfully submit and is set equal to an empty string afterwards
+it('should be set equal to an empty string after submittal', () =>{ 
+    // setting the value of the text area so that it can be submitted
+    wrapped.find('textarea')
+        .simulate('change', { target: { value: "cheesedick" } });
+    wrapped.update();
+
+    // simulating the submission of the form
+    wrapped.find('form')
+        .simulate('submit');
+    wrapped.update();
+
+    // expecting the text area to have an empty string as its
+    expect(wrapped.find('textarea').prop('value')).toEqual('');
 })
