@@ -7,14 +7,21 @@ import App from 'App';
 import CommentBox from 'components/CommentBox';
 import CommentList from 'components/CommentList';
 
+// initialize the variable to hold the component so that it can be accessed by all the tests
+let wrapped;
+
+
+// mounting <App /> before each of the tests run
+beforeEach(() => {
+    wrapped = shallow(<App />);
+})
+
 // testing for the existence of CommentBox
 it('should render a single instance of CommentBox', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(CommentBox).length).toEqual(1);
+    expect(wrapped.find(CommentBox).length).toEqual(1);
 });
 
 // testing for the existence of CommentList
 it('should render a single instance of CommentList', () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(CommentList).length).toEqual(1);
+    expect(wrapped.find(CommentList).length).toEqual(1);
 });
