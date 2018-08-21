@@ -2,6 +2,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
+// imporint the Root component to initialize the Redux Store inside of the tests
+import Root from 'Root';
+
 // importing the component to test
 import CommentBox from 'components/CommentBox';
 
@@ -9,7 +12,7 @@ import CommentBox from 'components/CommentBox';
 let wrapped;
 
 // mounting the component to test before each individual test
-beforeEach(() => wrapped = mount(<CommentBox />));
+beforeEach(() => wrapped = mount(<Root><CommentBox /></Root>));
 
 // unmounting the component after each individual test so that it doesn't interfere with JSDOM's virtual DOM
 afterEach(() => wrapped.unmount());
