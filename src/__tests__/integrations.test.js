@@ -28,11 +28,11 @@ it('can fetch a list of comments and then render them', (done) => {
     wrapped.find('.fetch-comments-button').simulate('click');
 
     // here we want to introduce a pause so that moxios has time to respond with the fake response
-    setTimeout(() => {
+    moxios.wait(() => {
         wrapped.update();
         expect(wrapped.find('li').length).toEqual(2);
         done();
-    }, 100);
+    });
 
     
 });
