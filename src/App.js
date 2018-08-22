@@ -8,6 +8,27 @@ import CommentBox from 'components/CommentBox';
 import CommentList from 'components/CommentList';
 
 class App extends Component {
+  state = { comment: '' };
+
+  // checking the auth status when the component is first rendered/navigated to
+  componentDidMount(){
+    // calling the helper method
+    this.shouldNavigateAway();
+  };
+
+  // checking the auth status anytime App updates by receiving a new set of props
+  componentDidUpdate(){
+    // calling the helper method
+    this.shouldNavigateAway();
+  };
+
+  // helper function to check auth status and navigate accordingly
+  shouldNavigateAway = () => {
+    if (!this.props.auth) {
+      console.log(`I NEED TO LEAVE!!!`);
+    }
+  }
+
   renderHeader = () => {
     return (
       <ul>
@@ -22,15 +43,15 @@ class App extends Component {
         </li>
       </ul>
     )
-  }
+  };
 
   renderButton = () => {
     return <button onClick={this.handleButtonAuth}>{this.props.auth ? "Sign Out" : "Sign in"}</button>
-  }
+  };
 
   handleButtonAuth = () => {
     this.props.changeAuth(!this.props.auth);
-  }
+  };
 
   render(){
     return (
@@ -40,7 +61,7 @@ class App extends Component {
         <Route path='/' exact component={CommentList} />
       </div>
     )
-  }
+  };
 }
 
 const mapStateToProps = (state) => {
