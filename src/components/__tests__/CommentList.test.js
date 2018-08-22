@@ -27,3 +27,10 @@ it('should create one <li> per comment in the Store', () => {
     expect(wrapped.find('li').length).toEqual(2);
 });
 
+it('shows the text for each comment', () => {
+    // making use of the .render() method to return a Cheerio Wrapper and then using .text() to check the text in the element
+    // we need to make one assertion for each <li> that we're expecting to render, two in this case
+    expect(wrapped.render().text()).toContain('Comment 1');
+    expect(wrapped.render().text()).toContain('Comment 2');
+});
+
