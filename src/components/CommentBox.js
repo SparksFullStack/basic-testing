@@ -28,8 +28,9 @@ class CommentBox extends Component {
                         <button>Submit Comment</button>
                     </div>
                 </form>
-                {/* here we're placing the other button outside of the form to prevent any accidental submittal */}
-                <button onClick={this.props.fetchComments}>Fetch Comments</button>
+                {/* here we're placing the other button outside of the form to prevent any accidental submittal; 
+                we also added a class to make it easier to find when testing */}
+                <button className='fetch-comments-button' onClick={this.props.fetchComments}>Fetch Comments</button>
             </div>
         )
     }

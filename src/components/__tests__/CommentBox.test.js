@@ -18,9 +18,9 @@ beforeEach(() => wrapped = mount(<Root><CommentBox /></Root>));
 afterEach(() => wrapped.unmount());
 
 // testing for the existence of the 'textarea' and 'button' elements inside of the component
-it('has a text area and a button', () => {
+it('has a text area and two buttons', () => {
     expect(wrapped.find('textarea').length).toEqual(1);
-    expect(wrapped.find('button').length).toEqual(1);
+    expect(wrapped.find('button').length).toEqual(2);
 })
 
 // grouping the textarea tests together with 'describe'
