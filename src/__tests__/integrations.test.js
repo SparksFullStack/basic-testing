@@ -33,6 +33,4 @@ it('can fetch a list of comments and then render them', (done) => {
         expect(wrapped.find('li').length).toEqual(2);
         done();
     });
-
-    
 });
