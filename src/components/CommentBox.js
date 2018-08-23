@@ -1,23 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-// import { saveComment, fetchComments } from 'actions/actionCreators';
-import * as actions from 'actions/actionCreators';
+
+// importing the HOC
+import requireAuth from 'components/requireAuth';
 
 class CommentBox extends Component {
     state = {
         comment: "",
-    }
-
-    componentDidMount(){
-        if (!this.props.auth) this.navigateAway();
-    }
-
-    componentDidUpdate(){
-        if (!this.props.auth) this.navigateAway();
-    }
-
-    navigateAway = () => {
-        this.props.history.push('/');
     }
 
     handleChange = (event) => {
@@ -48,11 +36,4 @@ class CommentBox extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-      auth: state.auth,
-    }
-  }
-
-
-export default connect(mapStateToProps, actions)(CommentBox);
+export default requireAuth(CommentBox);
